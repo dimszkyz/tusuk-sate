@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Navy Teal - Tusuk Sate Wahyu</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* --- RESET & BASIC SETUP --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Smooth scrolling agar saat menu diklik transisinya halus */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; /* Menyesuaikan agar saat scroll, konten tidak tertutup header yang sticky */
+        }
+
+        body {
+            background-color: #f8fafc; /* White-Grey yang sangat bersih */
+            color: #1e293b; /* Navy gelap untuk teks body */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* Agar footer selalu berada di bawah meskipun konten sedikit */
+        }
+
+        /* --- HEADER STANDAR --- */
+        .modern-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            background-color: #ffffff; /* Warna White murni */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+            position: sticky; /* Tetap di atas saat scroll */
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* --- LOGO --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img {
+            height: 70px; 
+            width: auto;
+            object-fit: contain;
+            transition: height 0.3s ease;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .top-text {
+            color: #64748b; 
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: font-size 0.3s ease;
+        }
+
+        .logo-text .highlight {
+            background: linear-gradient(135deg, #0d9488, #1e3a8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            transition: font-size 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- NAVIGATION LINKS --- */
+        .nav-menu ul {
+            display: flex;
+            gap: 2px; /* Dikecilkan agar muat 6 menu */
+            list-style: none;
+        }
+
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #475569; 
+            font-size: 0.95rem; /* Disesuaikan agar pas untuk 6 menu */
+            font-weight: 500;
+            padding: 8px 12px; 
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a i {
+            font-size: 1.2rem;
+        }
+
+        .nav-menu a:hover {
+            color: #0d9488; 
+            background-color: #f0fdfa; 
+        }
+
+        .nav-menu a:hover i {
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a.active {
+            color: #1e3a8a; 
+            background-color: #eff6ff; 
+            font-weight: 600;
+        }
+
+        /* --- MOBILE MENU --- */
+        .menu-checkbox { display: none; }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: #1e3a8a; 
+            font-size: 2rem;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover { color: #0d9488; }
+
+        /* =========================================
+           HERO SECTION (BERANDA AWAL) 
+           ========================================= */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 6% 80px; 
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .hero-socials a {
+            color: #64748b;
+            font-size: 1.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .hero-socials a:hover {
+            color: #0d9488; 
+            transform: translateY(-3px);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1e293b;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title .text-gradient {
+            background: linear-gradient(135deg, #0d9488, #1e3a8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3a8a, #0d9488); 
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(13, 148, 136, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(13, 148, 136, 0.25);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* =========================================
+           PRODUK UNGGULAN SECTION 
+           ========================================= */
+        .featured-section {
+            padding: 80px 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #ffffff; 
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            color: #0d9488; 
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(13, 148, 136, 0.1);
+            border-color: #ccfbf1;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 2px solid #0d9488;
+            color: #0d9488;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: #0d9488;
+            color: #ffffff;
+        }
+
+        /* =========================================
+           KATALOG PRODUK SECTION 
+           ========================================= */
+        .catalog-section {
+            padding: 0 6% 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .bento-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .bento-card.wide {
+            grid-column: span 2; 
+        }
+
+        .bento-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .bento-content {
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bento-category {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .bento-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        /* =========================================
+           MENGAPA MEMILIH KAMI SECTION (LAYANAN)
+           ========================================= */
+        .features-section {
+            background-color: #ffffff; 
+            padding: 80px 6%;
+            margin-bottom: 80px;
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-header .section-subtitle {
+            color: #0d9488;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .features-header .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: flex-start; 
+            gap: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background-color: #f8fafc; 
+        }
+
+        .feature-icon-box {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background-color: #f1f5f9; 
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #475569; 
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-box {
+            background-color: #ccfbf1; 
+            color: #0d9488; 
+            transform: scale(1.05);
+        }
+
+        .feature-text h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .feature-text p {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* =========================================
+           KONTAK SECTION 
+           ========================================= */
+        .contact-section {
+            padding: 0 6% 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #1e293b, #0f172a); 
+            border-radius: 30px;
+            padding: 60px 5%;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.2) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .contact-card .section-subtitle {
+            color: #ccfbf1; 
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .contact-card .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .contact-desc {
+            color: #94a3b8; 
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #25D366; 
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 700;
+            padding: 18px 40px;
+            border-radius: 50px; 
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-whatsapp i {
+            font-size: 1.6rem;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(37, 211, 102, 0.3);
+            background-color: #20bd5a;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #cbd5e1;
+            font-size: 1rem;
+        }
+
+        .info-item i {
+            font-size: 1.3rem;
+            color: #0d9488; 
+        }
+
+        /* =========================================
+           FOOTER SECTION (TENTANG KAMI DLL)
+           ========================================= */
+        .site-footer {
+            background-color: #ffffff; 
+            border-top: 1px solid #e2e8f0; 
+            padding: 60px 6% 30px; 
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr; 
+            gap: 40px;
+            margin-bottom: 40px; 
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px; 
+            display: inline-flex; 
+        }
+        
+        .footer-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 15px;
+            max-width: 90%;
+        }
+
+        .footer-links h4 {
+            color: #1e293b;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul a:hover {
+            color: #0d9488; 
+        }
+
+        .footer-contact h4 {
+            color: #1e293b;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start; 
+            gap: 12px;
+            margin-bottom: 15px;
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .footer-contact-item i {
+            color: #0d9488; 
+            font-size: 1.4rem;
+            margin-top: 2px; 
+        }
+        
+        .footer-contact-item strong {
+            color: #1e293b;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .footer-contact-item a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: #0d9488;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #f1f5f9;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom strong {
+            color: #1e3a8a; 
+        }
+
+        /* --- RESPONSIVE UNTUK LAYAR KECIL --- */
+        @media (max-width: 992px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .bento-card.wide { grid-column: span 2; }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .modern-header { padding: 15px 5%; }
+            .logo { gap: 8px; }
+            .logo-img { height: 45px; }
+            .logo-text .top-text { font-size: 0.75rem; }
+            .logo-text .highlight { font-size: 1.2rem; }
+
+            .hamburger { display: block; }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 15px 5%;
+                border-top: 1px solid #f1f5f9;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu ul { flex-direction: column; gap: 8px; }
+            .nav-menu a { padding: 14px 18px; width: 100%; }
+            .menu-checkbox:checked ~ .nav-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+            .menu-checkbox:checked ~ .hamburger i::before { content: "\e30f"; }
+
+            .hero-section {
+                flex-direction: column;
+                padding: 40px 5% 60px;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-socials { justify-content: center; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-desc { font-size: 1rem; }
+            .hero-image img { max-width: 90%; }
+
+            .featured-section { padding: 50px 5%; border-radius: 0; }
+            .section-title { font-size: 2rem; }
+
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card.wide { grid-column: span 1; }
+
+            .features-section { padding: 50px 5%; }
+            .features-header .section-title { font-size: 2rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 20px; }
+
+            .contact-section { padding: 0 5% 50px; }
+            .contact-card { padding: 40px 5%; border-radius: 20px; }
+            .contact-card .section-title { font-size: 2rem; }
+            .btn-whatsapp { 
+                font-size: 1rem; 
+                padding: 14px 24px; 
+                width: 100%; 
+                justify-content: center; 
+            }
+
+            .site-footer { padding: 50px 5% 20px; }
+            .footer-container {
+                grid-template-columns: 1fr; 
+                gap: 30px;
+                text-align: center; 
+            }
+            .footer-brand .logo { justify-content: center; margin-bottom: 10px; }
+            .footer-desc { margin: 0 auto; }
+            .footer-contact-item {
+                flex-direction: column;
+                align-items: center; 
+                gap: 5px;
+            }
+            .footer-contact-item i { margin-top: 0; margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="modern-header">
+        <a href="#beranda" class="logo">
+            <img src="logotsk.png" alt="Logo Tusuk Sate" class="logo-img">
+            <div class="logo-text">
+                <span class="top-text">Tusuk Sate</span>
+                <span class="highlight">Wahyu</span>
+            </div>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="hamburger">
+            <i class="ph ph-list"></i>
+        </label>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#beranda"><i class="ph ph-house"></i> Beranda</a></li>
+                <li><a href="#unggulan"><i class="ph ph-star"></i> Unggulan</a></li>
+                <li><a href="#produk"><i class="ph ph-package"></i> Produk</a></li>
+                <li><a href="#layanan"><i class="ph ph-thumbs-up"></i> Layanan</a></li>
+                <li><a href="#kontak"><i class="ph ph-phone-call"></i> Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" id="beranda">
+            <div class="hero-content">
+                <div class="hero-socials">
+                    <a href="#" target="_blank" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#" target="_blank" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="#" target="_blank" title="Website"><i class="ph ph-globe"></i></a>
+                </div>
+                <h1 class="hero-title">
+                    Pilihan <span class="text-gradient">terbaik</span> tusuk sate untuk usaha Anda
+                </h1>
+                <p class="hero-desc">
+                    Tusuk sate berkualitas tinggi, kuat, higienis, cocok untuk usaha kuliner Anda dengan harga terjangkau dan siap kirim.
+                </p>
+                <a href="#kontak" class="btn-primary">Pesan Sekarang</a>
+            </div>
+            <div class="hero-image">
+                <img src="beranda.png" alt="Ilustrasi Tusuk Sate Wahyu">
+            </div>
+        </section>
+
+        <section class="featured-section" id="unggulan">
+            <div class="section-header">
+                <span class="section-subtitle"><i class="ph-fill ph-star"></i> Best Seller</span>
+                <h2 class="section-title">Produk Unggulan Kami</h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x300?text=Unggulan+1" alt="Produk 1" class="product-img">
+                    <h3 class="product-title">Tusuk Sate Cap Kijang</h3>
+                    <p class="product-desc">Tusuk sate standar dengan ujung runcing sempurna, sangat cocok untuk sate ayam madura. Tidak mudah patah.</p>
+                    <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x300?text=Unggulan+2" alt="Produk 2" class="product-img">
+                    <h3 class="product-title">Tusuk Cilok Selecta</h3>
+                    <p class="product-desc">Dirancang khusus lebih tebal dan kokoh untuk menahan beban daging sapi atau kambing. Tahan panas tinggi.</p>
+                    <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400x300?text=Unggulan+3" alt="Produk 3" class="product-img">
+                    <h3 class="product-title">Tusuk Sate Cap Panda Bamboo</h3>
+                    <p class="product-desc">Potongan lebih mulus dan bersih, bebas serpihan bambu. Sangat estetik untuk sate taichan kekinian.</p>
+                    <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section" id="produk">
+            <div class="section-header">
+                <span class="section-subtitle"><i class="ph-fill ph-package"></i> Katalog Kami</span>
+                <h2 class="section-title">Katalog Produk</h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-card wide">
+                    <img src="https://via.placeholder.com/800x400?text=Gambar+Lebar+1" alt="Katalog 1">
+                    <div class="bento-content">
+                        <span class="bento-category">Tusuk Sate Bambu, Higienis</span>
+                        <h3 class="bento-title">Tusuk Sate Ayam Panjang 20cm</h3>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <img src="https://via.placeholder.com/400x400?text=Kotak+1" alt="Katalog 2">
+                    <div class="bento-content">
+                        <span class="bento-category">Kemasan Plastik, Grosir</span>
+                        <h3 class="bento-title">Tusuk Sate Kambing</h3>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <img src="https://via.placeholder.com/400x400?text=Kotak+2" alt="Katalog 3">
+                    <div class="bento-content">
+                        <span class="bento-category">Bambu Super, Halus</span>
+                        <h3 class="bento-title">Tusuk Cilok / Sempol</h3>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <img src="https://via.placeholder.com/400x400?text=Kotak+3" alt="Katalog 4">
+                    <div class="bento-content">
+                        <span class="bento-category">Tusuk Dayung, Flag</span>
+                        <h3 class="bento-title">Tusuk Yakitori Dayung</h3>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <img src="https://via.placeholder.com/400x400?text=Kotak+4" alt="Katalog 5">
+                    <div class="bento-content">
+                        <span class="bento-category">Ramah Lingkungan, Premium</span>
+                        <h3 class="bento-title">Tusuk Sate Taichan 15cm</h3>
+                    </div>
+                </div>
+                <div class="bento-card wide">
+                    <img src="https://via.placeholder.com/800x400?text=Gambar+Lebar+2" alt="Katalog 6">
+                    <div class="bento-content">
+                        <span class="bento-category">Pembelian Partai, Kiloan, Karungan</span>
+                        <h3 class="bento-title">Tusuk Sate Grosir Karungan (Super Kokoh)</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="layanan">
+            <div class="features-container">
+                <div class="features-header">
+                    <span class="section-subtitle"><i class="ph-fill ph-thumbs-up"></i> Nilai Lebih</span>
+                    <h2 class="section-title">Mitra Terpercaya untuk<br>Usaha Kuliner Anda</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-box"><i class="ph ph-truck"></i></div>
+                        <div class="feature-text">
+                            <h3>Produksi & Pengiriman Cepat</h3>
+                            <p>Stok selalu tersedia. Pesanan diproses dan dikirim dengan cepat untuk memastikan usaha Anda tidak pernah kehabisan bahan baku.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-box"><i class="ph ph-handshake"></i></div>
+                        <div class="feature-text">
+                            <h3>Bisa Pesan Partai & Eceran</h3>
+                            <p>Kami melayani pembelian dalam jumlah besar (karungan/grosir) maupun jumlah kecil (pack) menyesuaikan kebutuhan Anda.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-box"><i class="ph ph-shield-check"></i></div>
+                        <div class="feature-text">
+                            <h3>Transaksi Aman</h3>
+                            <p>Kami adalah produsen terpercaya. Pembayaran aman dan pesanan dijamin sampai ke lokasi Anda tepat waktu.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-box"><i class="ph ph-arrows-clockwise"></i></div>
+                        <div class="feature-text">
+                            <h3>Garansi Retur 100%</h3>
+                            <p>Garansi pengembalian dana atau tukar barang jika produk yang Anda terima dalam keadaan rusak, patah, atau berjamur.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-box"><i class="ph ph-sparkle"></i></div>
+                        <div class="feature-text">
+                            <h3>Kualitas Premium & Higienis</h3>
+                            <p>Terbuat dari bambu pilihan. Proses produksi dijaga kebersihannya, menghasilkan tusuk sate yang halus, kokoh, dan bebas serpihan.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-box"><i class="ph ph-squares-four"></i></div>
+                        <div class="feature-text">
+                            <h3>Berbagai Jenis Ukuran</h3>
+                            <p>Tersedia berbagai varian ukuran dan ketebalan, mulai dari tusuk sate ayam reguler, sate kambing, taichan, hingga sempol.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="kontak">
+            <div class="contact-card">
+                <span class="section-subtitle"><i class="ph-fill ph-phone-call"></i> Hubungi Kami</span>
+                <h2 class="section-title">Siap Memenuhi Kebutuhan<br>Tusuk Sate Anda?</h2>
+                <p class="contact-desc">
+                    Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan terkait stok produk, penawaran harga grosir, atau ingin memesan langsung. Kami siap melayani pesanan Anda!
+                </p>
+                <a href="https://wa.me/6282322777667" target="_blank" class="btn-whatsapp">
+                    <i class="ph-fill ph-whatsapp-logo"></i> Layanan pesan antar via WhatsApp
+                </a>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="ph ph-map-pin"></i>
+                        <span>Ungaran, Jawa Tengah</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph ph-clock"></i>
+                        <span>Buka Setiap Hari: 08.00 - 17.00 WIB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="tentang-kami">
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <a href="#beranda" class="logo">
+                    <img src="logotsk.png" alt="Logo Tusuk Sate" class="logo-img" style="height: 50px;"> 
+                    <div class="logo-text">
+                        <span class="top-text">Tusuk Sate</span>
+                        <span class="highlight">Wahyu</span>
+                    </div>
+                </a>
+                <p class="footer-desc">
+                    Mitra terpercaya dalam penyediaan tusuk sate berkualitas tinggi, kuat, higienis, dan harga terjangkau untuk kebutuhan usaha kuliner skala besar maupun kecil.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Produk Kami</h4>
+                <ul>
+                    <li><a href="#unggulan">Tusuk Sate Ayam</a></li>
+                    <li><a href="#unggulan">Tusuk Sate Kambing</a></li>
+                    <li><a href="#unggulan">Tusuk Taichan</a></li>
+                    <li><a href="#produk">Grosir Karungan</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Informasi</h4>
+                <ul>
+                    <li><a href="#tentang-kami">Tentang Kami</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Kontak Kami</h4>
+                <div class="footer-contact-item">
+                    <i class="ph ph-buildings"></i>
+                    <div>
+                        <strong>Lokasi Operasional:</strong>
+                        Klego, RT.01/RW.01, Ngempon, Kec. Bergas,<br>
+                        Ungaran, Kab. Semarang,<br>
+                        Jawa Tengah 50552
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="ph ph-whatsapp-logo"></i>
+                    <div>
+                        <a href="https://wa.me/6282322777667">+62 823-227-77667 (MinTus)</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 <strong>Tusuk Sate Wahyu</strong>. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
