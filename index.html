@@ -24,19 +24,19 @@
         /* Smooth scrolling agar saat menu diklik transisinya halus */
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px; /* Menyesuaikan agar saat scroll, konten tidak tertutup header yang sticky */
+            scroll-padding-top: 100px;
         }
 
         body {
-            background-color: #f8fafc; /* White-Grey yang sangat bersih */
-            color: #1e293b; /* Navy gelap untuk teks body */
+            background-color: #f8fafc;
+            color: #1e293b;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         main {
-            flex: 1; /* Agar footer selalu berada di bawah meskipun konten sedikit */
+            flex: 1;
         }
 
         /* --- HEADER STANDAR --- */
@@ -45,9 +45,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 6%;
-            background-color: #ffffff; /* Warna White murni */
+            background-color: #ffffff;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
-            position: sticky; /* Tetap di atas saat scroll */
+            position: sticky;
             top: 0;
             z-index: 1000;
         }
@@ -100,7 +100,7 @@
         /* --- NAVIGATION LINKS --- */
         .nav-menu ul {
             display: flex;
-            gap: 2px; /* Dikecilkan agar muat 6 menu */
+            gap: 2px;
             list-style: none;
         }
 
@@ -110,7 +110,7 @@
             gap: 6px;
             text-decoration: none;
             color: #475569; 
-            font-size: 0.95rem; /* Disesuaikan agar pas untuk 6 menu */
+            font-size: 0.95rem;
             font-weight: 500;
             padding: 8px 12px; 
             border-radius: 8px;
@@ -296,6 +296,8 @@
             border: 1px solid #e2e8f0;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -336,6 +338,7 @@
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s ease;
+            margin-top: auto; /* Memastikan tombol selalu di bawah pada layout desktop */
         }
 
         .btn-outline:hover {
@@ -744,19 +747,85 @@
             .menu-checkbox:checked ~ .hamburger i::before { content: "\e30f"; }
 
             .hero-section {
-                flex-direction: column;
-                padding: 40px 5% 60px;
-                text-align: center;
-                gap: 30px;
+                flex-direction: row; 
+                padding: 30px 5% 40px;
+                text-align: left; 
+                gap: 15px; 
+                align-items: center;
             }
 
-            .hero-socials { justify-content: center; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-desc { font-size: 1rem; }
-            .hero-image img { max-width: 90%; }
+            .hero-content { flex: 1.2; }
+            .hero-socials { justify-content: flex-start; gap: 10px; margin-bottom: 15px; }
+            .hero-socials a { font-size: 1.2rem; }
+            .hero-title { font-size: 1.3rem; margin-bottom: 12px; }
+            .hero-desc { font-size: 0.75rem; margin-bottom: 20px; line-height: 1.4; }
+            .btn-primary { font-size: 0.8rem; padding: 10px 18px; border-radius: 8px; }
+            .hero-image { flex: 1; }
+            .hero-image img { max-width: 100%; }
 
-            .featured-section { padding: 50px 5%; border-radius: 0; }
-            .section-title { font-size: 2rem; }
+            /* PERUBAHAN SECTION UNGGULAN MOBILE (HORIZONTAL SCROLL) */
+            .featured-section { padding: 50px 0; border-radius: 0; }
+            .featured-section .section-header { padding: 0 5%; }
+            .featured-section .section-title { font-size: 2rem; }
+
+            .products-grid {
+                display: flex; /* Ubah ke flex untuk scroll horizontal */
+                flex-wrap: nowrap; /* Jangan ke bawah */
+                overflow-x: auto; /* Bisa scroll kiri-kanan */
+                scroll-snap-type: x mandatory; /* Scroll otomatis pas ke card */
+                gap: 15px;
+                padding: 0 5% 20px 5%; /* Padding untuk memberi ruang scrollbar */
+                -webkit-overflow-scrolling: touch; /* Kelancaran di iOS */
+                scrollbar-width: none; /* Hilangkan scrollbar (Firefox) */
+            }
+            .products-grid::-webkit-scrollbar {
+                display: none; /* Hilangkan scrollbar (Chrome/Safari) */
+            }
+
+            .product-card {
+                flex: 0 0 85vw; /* Lebar card mengambil 85% layar */
+                scroll-snap-align: center; /* Snap di tengah */
+                flex-direction: row; /* Gambar di kiri, teks di kanan */
+                align-items: center;
+                text-align: left;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .product-card:hover { transform: none; } /* Hapus efek hover di HP */
+
+            .product-img {
+                width: 100px; /* Lebar gambar fix */
+                height: 100px;
+                margin-bottom: 0;
+                flex-shrink: 0; /* Gambar tidak mengecil */
+            }
+
+            /* Container text baru di dalam card agar sejajar rapi */
+            .product-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+
+            .product-title {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
+
+            .product-desc {
+                font-size: 0.8rem;
+                margin-bottom: 12px;
+                line-height: 1.4;
+            }
+
+            .btn-outline {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                margin-top: 0;
+            }
+            /* SELESAI PERUBAHAN SECTION UNGGULAN */
 
             .bento-grid { grid-template-columns: 1fr; }
             .bento-card.wide { grid-column: span 1; }
@@ -846,23 +915,30 @@
                 <h2 class="section-title">Produk Unggulan Kami</h2>
             </div>
             <div class="products-grid">
+                <!-- Penambahan div.product-info di sini untuk mempermudah tata letak Mobile -->
                 <div class="product-card">
                     <img src="https://via.placeholder.com/400x300?text=Unggulan+1" alt="Produk 1" class="product-img">
-                    <h3 class="product-title">Tusuk Sate Cap Kijang</h3>
-                    <p class="product-desc">Tusuk sate standar dengan ujung runcing sempurna, sangat cocok untuk sate ayam madura. Tidak mudah patah.</p>
-                    <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                    <div class="product-info">
+                        <h3 class="product-title">Tusuk Sate Cap Kijang</h3>
+                        <p class="product-desc">Tusuk sate standar dengan ujung runcing sempurna, sangat cocok untuk sate ayam madura. Tidak mudah patah.</p>
+                        <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                    </div>
                 </div>
                 <div class="product-card">
                     <img src="https://via.placeholder.com/400x300?text=Unggulan+2" alt="Produk 2" class="product-img">
-                    <h3 class="product-title">Tusuk Cilok Selecta</h3>
-                    <p class="product-desc">Dirancang khusus lebih tebal dan kokoh untuk menahan beban daging sapi atau kambing. Tahan panas tinggi.</p>
-                    <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                    <div class="product-info">
+                        <h3 class="product-title">Tusuk Cilok Selecta</h3>
+                        <p class="product-desc">Dirancang khusus lebih tebal dan kokoh untuk menahan beban daging sapi atau kambing. Tahan panas tinggi.</p>
+                        <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                    </div>
                 </div>
                 <div class="product-card">
                     <img src="https://via.placeholder.com/400x300?text=Unggulan+3" alt="Produk 3" class="product-img">
-                    <h3 class="product-title">Tusuk Sate Cap Panda Bamboo</h3>
-                    <p class="product-desc">Potongan lebih mulus dan bersih, bebas serpihan bambu. Sangat estetik untuk sate taichan kekinian.</p>
-                    <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                    <div class="product-info">
+                        <h3 class="product-title">Tusuk Sate Cap Panda Bamboo</h3>
+                        <p class="product-desc">Potongan lebih mulus dan bersih, bebas serpihan bambu. Sangat estetik untuk sate taichan kekinian.</p>
+                        <a href="#kontak" class="btn-outline">Lihat Detail</a>
+                    </div>
                 </div>
             </div>
         </section>
