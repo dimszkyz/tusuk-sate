@@ -338,7 +338,7 @@
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s ease;
-            margin-top: auto; /* Memastikan tombol selalu di bawah pada layout desktop */
+            margin-top: auto; 
         }
 
         .btn-outline:hover {
@@ -744,7 +744,7 @@
             .nav-menu ul { flex-direction: column; gap: 8px; }
             .nav-menu a { padding: 14px 18px; width: 100%; }
             .menu-checkbox:checked ~ .nav-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-            .menu-checkbox:checked ~ .hamburger i::before { content: "\e30f"; }
+            /* BARIS YANG DIHAPUS: .menu-checkbox:checked ~ .hamburger i::before { content: "\e30f"; } */
 
             .hero-section {
                 flex-direction: row; 
@@ -769,39 +769,38 @@
             .featured-section .section-title { font-size: 2rem; }
 
             .products-grid {
-                display: flex; /* Ubah ke flex untuk scroll horizontal */
-                flex-wrap: nowrap; /* Jangan ke bawah */
-                overflow-x: auto; /* Bisa scroll kiri-kanan */
-                scroll-snap-type: x mandatory; /* Scroll otomatis pas ke card */
+                display: flex; 
+                flex-wrap: nowrap; 
+                overflow-x: auto; 
+                scroll-snap-type: x mandatory; 
                 gap: 15px;
-                padding: 0 5% 20px 5%; /* Padding untuk memberi ruang scrollbar */
-                -webkit-overflow-scrolling: touch; /* Kelancaran di iOS */
-                scrollbar-width: none; /* Hilangkan scrollbar (Firefox) */
+                padding: 0 5% 20px 5%; 
+                -webkit-overflow-scrolling: touch; 
+                scrollbar-width: none; 
             }
             .products-grid::-webkit-scrollbar {
-                display: none; /* Hilangkan scrollbar (Chrome/Safari) */
+                display: none; 
             }
 
             .product-card {
-                flex: 0 0 85vw; /* Lebar card mengambil 85% layar */
-                scroll-snap-align: center; /* Snap di tengah */
-                flex-direction: row; /* Gambar di kiri, teks di kanan */
+                flex: 0 0 85vw; 
+                scroll-snap-align: center; 
+                flex-direction: row; 
                 align-items: center;
                 text-align: left;
                 padding: 15px;
                 gap: 15px;
             }
 
-            .product-card:hover { transform: none; } /* Hapus efek hover di HP */
+            .product-card:hover { transform: none; } 
 
             .product-img {
-                width: 100px; /* Lebar gambar fix */
+                width: 100px; 
                 height: 100px;
                 margin-bottom: 0;
-                flex-shrink: 0; /* Gambar tidak mengecil */
+                flex-shrink: 0; 
             }
 
-            /* Container text baru di dalam card agar sejajar rapi */
             .product-info {
                 display: flex;
                 flex-direction: column;
@@ -825,7 +824,6 @@
                 font-size: 0.8rem;
                 margin-top: 0;
             }
-            /* SELESAI PERUBAHAN SECTION UNGGULAN */
 
             .bento-grid { grid-template-columns: 1fr; }
             .bento-card.wide { grid-column: span 1; }
@@ -915,7 +913,6 @@
                 <h2 class="section-title">Produk Unggulan Kami</h2>
             </div>
             <div class="products-grid">
-                <!-- Penambahan div.product-info di sini untuk mempermudah tata letak Mobile -->
                 <div class="product-card">
                     <img src="https://via.placeholder.com/400x300?text=Unggulan+1" alt="Produk 1" class="product-img">
                     <div class="product-info">
@@ -1132,5 +1129,30 @@
         </div>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const hamburgerIcon = document.querySelector('.hamburger i');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        // Mengubah icon dari hamburger (list) menjadi X (close) saat dicentang
+        menuToggle.addEventListener('change', function() {
+            if (this.checked) {
+                hamburgerIcon.classList.remove('ph-list');
+                hamburgerIcon.classList.add('ph-x');
+            } else {
+                hamburgerIcon.classList.remove('ph-x');
+                hamburgerIcon.classList.add('ph-list');
+            }
+        });
+
+        // Menutup menu otomatis dan mengembalikan icon saat salah satu menu diklik
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.checked = false; // Uncheck checkbox
+                hamburgerIcon.classList.remove('ph-x');
+                hamburgerIcon.classList.add('ph-list');
+            });
+        });
+    </script>
 </body>
 </html>
